@@ -1,0 +1,145 @@
+:root {
+  --portal-blue: #1d4ed8; /* Royal Navy Blue */
+  --portal-red: #dc2626; /* Crimson Red */
+  --portal-dark: #0f172a;
+  --portal-bg: #f8fafc;
+  --portal-card-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+body {
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+  background-color: var(--portal-bg);
+  color: #334155;
+}
+
+/* Red & Blue Navbar Gradient */
+.navbar {
+  background: linear-gradient(
+    135deg,
+    var(--portal-blue) 0%,
+    var(--portal-red) 100%
+  ) !important;
+  box-shadow: 0 4px 12px rgba(29, 78, 216, 0.2);
+}
+
+.navbar-brand {
+  letter-spacing: -0.5px;
+}
+
+.navbar-nav .nav-link {
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+  padding: 0.5rem 0.75rem !important;
+  border-radius: 0.375rem;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff !important;
+}
+
+/* Cards Styling */
+.card {
+  border: none !important;
+  border-radius: 0.75rem;
+  box-shadow: var(--portal-card-shadow);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  background-color: #ffffff;
+}
+
+.card-header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #f1f5f9;
+  font-weight: 600;
+}
+
+/* Welcome Header Accent Bar (Red) */
+.welcome-header {
+  border-left: 4px solid var(--portal-red) !important;
+}
+
+/* Avatar Container (Blue/Red theme) */
+#avatarContainer {
+  border: 3px solid #e2e8f0;
+  transition: all 0.3s ease;
+  background: linear-gradient(
+    135deg,
+    var(--portal-blue),
+    var(--portal-red)
+  ) !important;
+}
+
+#avatarContainer:hover {
+  border-color: var(--portal-red);
+}
+
+/* Subject Card Hover Effects */
+.subject-card {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0 !important;
+}
+
+.subject-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(220, 38, 38, 0.08);
+  border-color: #cbd5e1 !important;
+}
+
+/* Custom Buttons Override */
+.btn-primary {
+  background-color: var(--portal-blue);
+  border-color: var(--portal-blue);
+  font-weight: 500;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.btn-primary:hover {
+  background-color: #1e40af;
+  border-color: #1e40af;
+}
+
+/* Accent Red Buttons for Specific Actions */
+.btn-accent-red {
+  background-color: var(--portal-red);
+  border-color: var(--portal-red);
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.btn-accent-red:hover {
+  background-color: #b91c1c;
+  border-color: #b91c1c;
+  color: #ffffff;
+}
+
+/* Form Inputs Focus Ring */
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--portal-blue);
+  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.15);
+}
+
+/* Modals Header */
+.modal-header {
+  background: linear-gradient(
+    135deg,
+    var(--portal-blue) 0%,
+    var(--portal-red) 100%
+  ) !important;
+}

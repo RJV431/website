@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>University Student Portal - Red & Blue Theme</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+  </head>
+  <body class="bg-light">
+    <!-- ================= 1. RESPONSIVE NAVBAR ================= -->
+    <nav
+      class="navbar navbar-expand-lg navbar-dark shadow-sm sticky-top"
+      aria-label="Main Navigation"
+    >
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#">
+          <i class="bi bi-mortarboard-fill me-2" aria-hidden="true"></i
+          >EduPortal <span class="badge bg-danger fs-7 ms-1">Red/Blue</span>
+        </a>
+        <button
+          class="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="#dashboard"
+                ><i class="bi bi-speedometer2 me-1"></i> Dashboard</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#subjects"
+                ><i class="bi bi-journal-bookmark me-1"></i> Subjects</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#register"
+                ><i class="bi bi-person-plus me-1"></i> Register</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#myRegistrations"
+                ><i class="bi bi-clipboard-check me-1"></i> My Registrations</a
+              >
+            </li>
+            <li class="nav-item dropdown ms-lg-2">
+              <a
+                class="nav-link dropdown-toggle text-white"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="bi bi-person-circle me-1"></i> Account
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end shadow border-0">
+                <li>
+                  <a
+                    class="dropdown-item py-2"
+                    href="#"
+                    data-bs-toggle="modal"
+                    data-bs-target="#editProfileModal"
+                    ><i class="bi bi-pencil-square me-2 text-primary"></i>
+                    Profile Settings</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a
+                    class="dropdown-item py-2 text-danger"
+                    href="#"
+                    id="logoutBtn"
+                    ><i class="bi bi-box-arrow-right me-2"></i> Logout</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ================= 2. MAIN CONTAINER & GRID DASHBOARD ================= -->
+    <main class="container my-4" id="dashboard">
+      <!-- Welcome Header -->
+      <div class="row mb-4">
+        <div class="col-12">
+          <div class="p-4 bg-white rounded-3 shadow-sm welcome-header">
+            <h1 class="h3 fw-bold mb-1">
+              Welcome back,
+              <span id="welcomeName" class="text-primary">Alex</span>!
+            </h1>
+            <p class="text-muted mb-0">
+              Here is your academic summary and registration manager.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grid Layout: Sidebar + Main Content -->
+      <div class="row g-4">
+        <!-- Left Column: Profile & Announcements -->
+        <div class="col-lg-4">
+          <!-- Profile Card -->
+          <div class="card shadow-sm mb-4" id="profileCardSection">
+            <div class="card-body text-center p-4">
+              <div class="position-relative d-inline-block mb-3">
+                <div
+                  id="avatarContainer"
+                  class="text-white rounded-circle d-flex align-items-center justify-content-center overflow-hidden mx-auto shadow-sm"
+                  style="width: 95px; height: 95px; font-size: 2.2rem"
+                >
+                  <i
+                    class="bi bi-person"
+                    id="defaultAvatarIcon"
+                    aria-hidden="true"
+                  ></i>
+                  <img
+                    id="profileImagePreview"
+                    src=""
+                    alt="Profile Picture"
+                    class="w-100 h-100 object-fit-cover d-none"
+                  />
+                </div>
+              </div>
+
+              <h5 class="card-title fw-bold mb-1" id="displayFullName">
+                Alex Johnson
+              </h5>
+              <p class="text-muted small mb-2">
+                <span id="displayMajor">Computer Science</span> Major •
+                <span id="displayYear">Junior</span>
+              </p>
+              <span
+                class="badge bg-danger px-3 py-1.5 rounded-pill mb-3"
+                id="displayStatus"
+                >Status: Active</span
+              >
+
+              <ul
+                class="list-group list-group-flush text-start small mb-4 bg-transparent"
+              >
+                <li
+                  class="list-group-item d-flex justify-content-between bg-transparent px-0"
+                >
+                  <span>Student ID:</span>
+                  <span class="fw-semibold">#S-84920</span>
+                </li>
+                <li
+                  class="list-group-item d-flex justify-content-between bg-transparent px-0"
+                >
+                  <span>GPA:</span>
+                  <span class="fw-semibold text-danger">3.85 / 4.0</span>
+                </li>
+                <li
+                  class="list-group-item d-flex justify-content-between bg-transparent px-0"
+                >
+                  <span>Credits:</span>
+                  <span class="fw-semibold">78 / 120</span>
+                </li>
+              </ul>
+
+              <div class="d-grid gap-2">
+                <button
+                  class="btn btn-outline-primary btn-sm py-2"
+                  data-bs-toggle="modal"
+                  data-bs-target="#editProfileModal"
+                >
+                  <i class="bi bi-pencil-square me-1"></i> Edit Profile
+                </button>
+                <button
+                  class="btn btn-outline-danger btn-sm py-2"
+                  id="deleteProfileBtn"
+                >
+                  <i class="bi bi-trash me-1"></i> Delete Profile
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Announcements Card -->
+          <div class="card shadow-sm">
+            <div
+              class="card-header bg-white fw-bold text-dark d-flex align-items-center py-3"
+            >
+              <i
+                class="bi bi-bell-fill text-danger me-2"
+                aria-hidden="true"
+              ></i>
+              Announcements
+            </div>
+            <div class="card-body">
+              <div class="mb-3 border-bottom pb-2">
+                <small class="text-danger fw-semibold d-block"
+                  >Oct 24, 2026</small
+                >
+                <h6 class="fw-semibold mb-1">Midterm Exam Schedule Released</h6>
+                <p class="small text-secondary mb-0">
+                  Check your course portal for specific room assignments.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Subjects & Registrations Manager -->
+        <div class="col-lg-8" id="subjects">
+          <!-- Subjects Grid -->
+          <div class="card shadow-sm mb-4">
+            <div
+              class="card-header bg-white d-flex justify-content-between align-items-center py-3"
+            >
+              <h5 class="mb-0 fw-bold">
+                <i
+                  class="bi bi-journal-text text-primary me-2"
+                  aria-hidden="true"
+                ></i>
+                Enrolled Subjects
+              </h5>
+              <span class="badge bg-primary rounded-pill px-3">2 Courses</span>
+            </div>
+            <div class="card-body">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="card h-100 subject-card">
+                    <div class="card-body">
+                      <div
+                        class="d-flex justify-content-between align-items-start mb-2"
+                      >
+                        <h6 class="card-title fw-bold text-dark mb-0">
+                          Data Structures
+                        </h6>
+                        <span
+                          class="badge bg-danger-subtle text-danger border border-danger-subtle"
+                          >CS-301</span
+                        >
+                      </div>
+                      <p class="small text-muted mb-2">Prof. Alan Turing</p>
+                      <div class="progress mb-2" style="height: 6px">
+                        <div
+                          class="progress-bar bg-danger"
+                          style="width: 75%"
+                        ></div>
+                      </div>
+                      <small class="text-muted">75% Complete</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="card h-100 subject-card">
+                    <div class="card-body">
+                      <div
+                        class="d-flex justify-content-between align-items-start mb-2"
+                      >
+                        <h6 class="card-title fw-bold text-dark mb-0">
+                          Database Systems
+                        </h6>
+                        <span
+                          class="badge bg-primary-subtle text-primary border border-primary-subtle"
+                          >CS-305</span
+                        >
+                      </div>
+                      <p class="small text-muted mb-2">Prof. Edgar Codd</p>
+                      <div class="progress mb-2" style="height: 6px">
+                        <div
+                          class="progress-bar bg-primary"
+                          style="width: 60%"
+                        ></div>
+                      </div>
+                      <small class="text-muted">60% Complete</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- My Registrations Section (Manage After Registration) -->
+          <div class="card shadow-sm mb-4" id="myRegistrations">
+            <div
+              class="card-header bg-white d-flex justify-content-between align-items-center py-3"
+            >
+              <h5 class="mb-0 fw-bold">
+                <i class="bi bi-clipboard-check text-danger me-2"></i> My Active
+                Registrations
+              </h5>
+              <span
+                class="badge bg-secondary rounded-pill px-3"
+                id="regCountBadge"
+                >0 Active</span
+              >
+            </div>
+            <div class="card-body p-0">
+              <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                  <thead class="table-light">
+                    <tr>
+                      <th class="ps-3">Student Name</th>
+                      <th>Major</th>
+                      <th>Term</th>
+                      <th>Track</th>
+                      <th class="text-end pe-3">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="registrationsTableBody">
+                    <tr>
+                      <td colspan="5" class="text-center text-muted py-4">
+                        No course registrations submitted yet. Fill out the form
+                        below to register.
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= 3. ACCESSIBLE REGISTRATION FORM ================= -->
+      <section class="row mt-5" id="register">
+        <div class="col-12">
+          <div class="card shadow-sm">
+            <div
+              class="card-header text-white py-3"
+              style="background: linear-gradient(135deg, #1d4ed8, #dc2626)"
+            >
+              <h4 class="mb-0 fs-5">
+                <i class="bi bi-person-plus-fill me-2" aria-hidden="true"></i>
+                Semester Course Registration
+              </h4>
+            </div>
+            <div class="card-body p-4">
+              <form
+                id="courseRegistrationForm"
+                class="row g-3 needs-validation"
+                novalidate
+              >
+                <div class="col-md-6">
+                  <label for="regFullName" class="form-label fw-semibold"
+                    >Full Name <span class="text-danger">*</span></label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="regFullName"
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    Please provide your full name.
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="regEmail" class="form-label fw-semibold"
+                    >Student Email <span class="text-danger">*</span></label
+                  >
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="regEmail"
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    Please provide a valid university email.
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="regMajor" class="form-label fw-semibold"
+                    >Department / Major
+                    <span class="text-danger">*</span></label
+                  >
+                  <select class="form-select" id="regMajor" required>
+                    <option selected disabled value="">
+                      Choose department...
+                    </option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Computer Engineering">
+                      Computer Engineering
+                    </option>
+                    <option value="Electrical Engineering">
+                      Electrical Engineering
+                    </option>
+                    <option value="Data Science">Data Science</option>
+                  </select>
+                  <div class="invalid-feedback">Please select a major.</div>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="regTerm" class="form-label fw-semibold"
+                    >Enrollment Term <span class="text-danger">*</span></label
+                  >
+                  <select class="form-select" id="regTerm" required>
+                    <option selected disabled value="">Choose term...</option>
+                    <option value="Spring 2027">Spring 2027</option>
+                    <option value="Summer 2027">Summer 2027</option>
+                    <option value="Fall 2027">Fall 2027</option>
+                  </select>
+                  <div class="invalid-feedback">Please select a term.</div>
+                </div>
+
+                <div class="col-12">
+                  <label for="regTrack" class="form-label fw-semibold"
+                    >Elective Track <span class="text-danger">*</span></label
+                  >
+                  <select class="form-select" id="regTrack" required>
+                    <option selected disabled value="">Choose track...</option>
+                    <option value="AI & Machine Learning">
+                      AI & Machine Learning
+                    </option>
+                    <option value="Cybersecurity">Cybersecurity</option>
+                    <option value="Software Engineering">
+                      Software Engineering
+                    </option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Please select an elective track.
+                  </div>
+                </div>
+
+                <div class="col-12 mt-4">
+                  <button
+                    type="submit"
+                    class="btn btn-accent-red px-4 py-2 fw-semibold"
+                  >
+                    <i class="bi bi-check-circle me-1"></i> Submit Registration
+                  </button>
+                  <button
+                    type="reset"
+                    class="btn btn-outline-secondary px-4 py-2 ms-2"
+                  >
+                    Reset
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ================= 4. MODALS ================= -->
+
+    <!-- Edit Profile Modal -->
+    <div
+      class="modal fade"
+      id="editProfileModal"
+      tabindex="-1"
+      aria-labelledby="editProfileModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header text-white">
+            <h5 class="modal-title" id="editProfileModalLabel">
+              <i class="bi bi-pencil-square me-2"></i>Edit Student Profile
+            </h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body p-4">
+            <form id="editProfileForm">
+              <div class="mb-3 text-center">
+                <label
+                  for="profileImageInput"
+                  class="form-label fw-semibold d-block"
+                  >Profile Picture</label
+                >
+                <input
+                  type="file"
+                  class="form-control form-control-sm"
+                  id="profileImageInput"
+                  accept="image/*"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="editName" class="form-label fw-semibold"
+                  >Full Name</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="editName"
+                  required
+                />
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="editMajor" class="form-label fw-semibold"
+                    >Major</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="editMajor"
+                    required
+                  />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="editYear" class="form-label fw-semibold"
+                    >Year</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="editYear"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="modal-footer px-0 pb-0 pt-3 border-top">
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Cancel
+                </button>
+                <button type="submit" class="btn btn-primary">
+                  Save Changes
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Edit Registration Modal -->
+    <div
+      class="modal fade"
+      id="editRegModal"
+      tabindex="-1"
+      aria-labelledby="editRegModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header text-white">
+            <h5 class="modal-title" id="editRegModalLabel">
+              <i class="bi bi-pencil-square me-2"></i>Modify Registration
+              Details
+            </h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body p-4">
+            <form id="editRegForm">
+              <input type="hidden" id="editRegIndex" />
+              <div class="mb-3">
+                <label for="modalRegName" class="form-label fw-semibold"
+                  >Full Name</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="modalRegName"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="modalRegMajor" class="form-label fw-semibold"
+                  >Major</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="modalRegMajor"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="modalRegTerm" class="form-label fw-semibold"
+                  >Term</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="modalRegTerm"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="modalRegTrack" class="form-label fw-semibold"
+                  >Elective Track</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="modalRegTrack"
+                  required
+                />
+              </div>
+              <div class="modal-footer px-0 pb-0 pt-3 border-top">
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Cancel
+                </button>
+                <button type="submit" class="btn btn-primary">
+                  Update Registration
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white text-center py-3 mt-5 border-top">
+      <div class="container text-muted small">
+        &copy; 2026 University Student Portal. All rights reserved. Red & Blue
+        Theme.
+      </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="script.js"></script>
+  </body>
+</html>
